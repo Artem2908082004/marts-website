@@ -1,60 +1,92 @@
-
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>M-ART Token</title>
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        background: #0e0e0e;
-        color: white;
-        font-family: Arial, sans-serif;
-        text-align: center;
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>M-ART Token</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #0e0e0e;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      padding: 20px;
+      text-align: center;
+      background: #1e1e1e;
+    }
+
+    header img {
+      max-width: 150px;
+    }
+
+    h1 {
+      margin-top: 10px;
+      font-size: 2.2em;
+    }
+
+    .about {
+      text-align: center;
+      padding: 30px;
+      max-width: 600px;
+      margin: auto;
+      font-size: 1.1em;
+    }
+
+    .cta {
+      text-align: center;
+      margin: 30px;
+    }
+
+    .cta button {
+      background: #f0b000;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1em;
+      font-weight: bold;
+      color: black;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    footer {
+      background: #1e1e1e;
+      color: #888;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9em;
+    }
+
+    @media (max-width: 500px) {
+      .about {
+        padding: 15px;
+        font-size: 1em;
       }
-      header {
-        padding: 20px;
-      }
-      img {
-        max-width: 250px;
-      }
-      h1 {
-        font-size: 2.5em;
-        margin: 0.5em 0 0.2em;
-      }
-      p {
-        font-size: 1.2em;
-        max-width: 600px;
-        margin: 0 auto 1.5em;
-      }
-      .btn {
-        background: #f5b400;
-        color: #000;
-        padding: 12px 25px;
-        text-decoration: none;
-        font-weight: bold;
-        border-radius: 6px;
-        display: inline-block;
-        margin-top: 20px;
-      }
-      footer {
-        margin-top: 40px;
-        font-size: 0.9em;
-        color: #888;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <img src="logo.png" alt="M-ART Company Logo"/>
-      <h1>M-ART TOKEN (MAPTC)</h1>
-      <p>
-        M-ART — это инновационный токен, объединяющий инвестиции, просмотр рекламы и реальные возможности заработка. Зарабатывай без вложений, продвигай проекты или инвестируй в PR-фонд и получай прибыль до 80% в месяц.
-      </p>
-      <a class="btn" href="#">Купить токен</a>
-    </header>
-    <footer>© 2025 M-ART Company</footer>
-  </body>
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.png" alt="M-ART Logo">
+    <h1>M-ART TOKEN (MAPTC)</h1>
+  </header>
+
+  <section class="about">
+    <p>M-ART — это инновационный токен, объединяющий инвестиции, просмотр рекламы и реальные возможности заработка. Зарабатывай без вложений, продвигай проекты или инвестируй в PR-фонд и получай прибыль до 80% в месяц.</p>
+  </section>
+
+  <div class="cta">
+    <button onclick="window.location.href='https://example.com/buy'">Купить токен</button>
+  </div>
+
+  <footer>
+    © 2025 M-ART Company — Все права защищены. <br>
+    По вопросам: support@m-art.com
+  </footer>
+
+</body>
 </html>
