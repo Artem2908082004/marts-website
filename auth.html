@@ -1,0 +1,95 @@
+<!DOCTYPE html><html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M-ART | Вход и регистрация</title>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .auth-box {
+      background: #ffffff10;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px 5px;
+      border: none;
+      border-radius: 5px;
+      background-color: gold;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="auth-box">
+    <h2>Вход / Регистрация</h2>
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Пароль">
+    <div>
+      <button onclick="registerUser()">Регистрация</button>
+      <button onclick="loginUser()">Войти</button>
+    </div>
+  </div>  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyADIXLCySVhefRQ8gl0cwe-UO4EKMWeXzk",
+      authDomain: "m-arts.firebaseapp.com",
+      projectId: "m-arts",
+      storageBucket: "m-arts.firebasestorage.app",
+      messagingSenderId: "205706301791",
+      appId: "1:205706301791:web:343913413143c7e67d26ea",
+      measurementId: "G-9982YPPF1Z"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    function registerUser() {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      auth.createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          alert("Регистрация прошла успешно!");
+        })
+        .catch((error) => {
+          alert("Ошибка: " + error.message);
+        });
+    }
+
+    function loginUser() {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      auth.signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          alert("Вы успешно вошли!");
+        })
+        .catch((error) => {
+          alert("Ошибка: " + error.message);
+        });
+    }
+  </script></body>
+</html>
