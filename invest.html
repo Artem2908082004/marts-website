@@ -1,1 +1,50 @@
 
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Инвестировать</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="M-ART Company Logo" class="logo">
+    <nav>
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="calculator.html">Калькулятор</a></li>
+        <li><a href="invest.html">Инвестировать</a></li>
+        <li><a href="security.html">Безопасность</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Контакты</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Инвестировать в M-ART</h2>
+    <p>Введите ваш кошелёк и подтвердите инвестицию:</p>
+    <input type="text" id="wallet" placeholder="Адрес кошелька (0x...)">
+    <button onclick="invest()">Инвестировать сейчас</button>
+    <p id="confirmation"></p>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 M-ART Company. Все права защищены.</p>
+  </footer>
+
+  <script>
+    function invest() {
+      const wallet = document.getElementById('wallet').value;
+      const output = document.getElementById('confirmation');
+      if (wallet.startsWith('0x') && wallet.length === 42) {
+        output.innerText = 'Спасибо! Инструкция отправлена на ваш кошелёк.';
+        output.style.color = 'lightgreen';
+      } else {
+        output.innerText = 'Пожалуйста, введите корректный адрес.';
+        output.style.color = 'red';
+      }
+    }
+  </script>
+</body>
+</html>
