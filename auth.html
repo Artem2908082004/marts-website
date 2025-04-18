@@ -87,7 +87,7 @@
       auth.signInWithEmailAndPassword(email, password)
         .then(() => {
           alert("Вход выполнен!");
-          window.location.href = "index.html";
+          window.location.href = "dashboard.html";
         })
         .catch((error) => {
           alert("Ошибка входа: " + error.message);
