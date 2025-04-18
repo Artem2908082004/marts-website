@@ -1,50 +1,67 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Безопасность - M-ART</title>
+  <meta charset="UTF-8" />
+  <title>Безопасность - M-ART Company</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
       color: white;
-      margin: 0;
-      padding: 0;
+    }
+    header {
       text-align: center;
+      padding: 20px;
     }
     header img {
-      width: 200px;
-      margin-top: 20px;
+      width: 180px;
     }
     nav {
-      margin: 20px 0;
+      text-align: center;
+      margin-bottom: 30px;
     }
     nav a {
       margin: 0 10px;
       color: gold;
-      text-decoration: none;
       font-weight: bold;
+      text-decoration: none;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.1);
     }
     h1 {
-      font-size: 28px;
+      text-align: center;
+      color: #FFD700;
+    }
+    .section {
       margin-top: 30px;
     }
-    .content {
-      max-width: 800px;
-      margin: 20px auto;
-      padding: 20px;
-      background: rgba(0,0,0,0.4);
-      border-radius: 10px;
-      text-align: left;
+    .section h2 {
+      color: #ffcc00;
     }
-    .content h3 {
-      color: #FFD700;
+    .section p {
+      line-height: 1.6;
+    }
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      color: #bbb;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="logo.png" alt="Логотип M-ART">
+    <img src="logo.png" alt="M-ART Logo">
   </header>
 
   <nav>
@@ -56,20 +73,37 @@
     <a href="contact.html">Контакты</a>
   </nav>
 
-  <h1>Безопасность проекта</h1>
+  <div class="container">
+    <h1>Безопасность платформы</h1>
 
-  <div class="content">
-    <h3>Прозрачность</h3>
-    <p>Все операции токена MAPTC доступны в обозревателях блокчейна. Вы можете отслеживать каждую транзакцию в режиме реального времени.</p>
+    <div class="section">
+      <h2>Прозрачные смарт-контракты</h2>
+      <p>Мы используем полностью открытый и проверенный смарт-контракт, размещённый в сети Polygon. Любой желающий может проверить его код и убедиться в отсутствии скрытых функций.</p>
+    </div>
 
-    <h3>Смарт-контракт</h3>
-    <p>Контракт прошел аудит и не содержит уязвимостей. Мы исключили возможности для ручного вмешательства в балансы участников.</p>
+    <div class="section">
+      <h2>Отсутствие скрытых комиссий</h2>
+      <p>Мы не берем скрытых комиссий или плат за пользование платформой. Все операции происходят напрямую между пользователями и блокчейном.</p>
+    </div>
 
-    <h3>Безопасное подключение</h3>
-    <p>Интеграция с MetaMask осуществляется через защищенный канал. Ваши приватные ключи всегда остаются под вашим контролем.</p>
+    <div class="section">
+      <h2>Никакого доступа к средствам</h2>
+      <p>Ваши токены всегда под вашим контролем. Ни администрация проекта, ни разработчики не имеют доступа к вашим средствам.</p>
+    </div>
 
-    <h3>Поддержка</h3>
-    <p>В случае любых вопросов или подозрительной активности — вы всегда можете связаться с нашей командой поддержки через форму обратной связи.</p>
+    <div class="section">
+      <h2>Конфиденциальность</h2>
+      <p>Мы не собираем и не храним личные данные пользователей. Подключение происходит через MetaMask, что обеспечивает максимальную децентрализацию.</p>
+    </div>
+
+    <div class="section">
+      <h2>Поддержка 24/7</h2>
+      <p>Если у вас возникнут вопросы или проблемы — наша служба поддержки всегда готова помочь через <a href="contact.html" style="color: #FFD700;">контактную форму</a>.</p>
+    </div>
   </div>
+
+  <footer>
+    © 2025 M-ART Company. Все права защищены.
+  </footer>
 </body>
 </html>
