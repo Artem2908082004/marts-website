@@ -3,31 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <title>Вход / Регистрация</title>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
   <style>
     body {
-      background: linear-gradient(to bottom, #002f4b, #005f7f);
+      background: linear-gradient(to bottom, #004466, #003355);
       font-family: Arial, sans-serif;
-      color: white;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
       margin: 0;
     }
-
-    .container {
-      background: #ffffff10;
+    .auth-box {
+      background-color: rgba(0, 0, 0, 0.3);
       padding: 30px;
-      border-radius: 15px;
-      max-width: 400px;
-      width: 100%;
-    }
-
-    h2 {
+      border-radius: 10px;
       text-align: center;
-      margin-bottom: 20px;
+      color: white;
+      width: 100%;
+      max-width: 400px;
     }
-
     input {
       width: 100%;
       padding: 10px;
@@ -35,35 +31,28 @@
       border: none;
       border-radius: 5px;
     }
-
     button {
       width: 100%;
       padding: 10px;
       background-color: gold;
-      color: black;
       border: none;
       border-radius: 5px;
-      font-weight: bold;
-      margin-top: 10px;
       cursor: pointer;
+      margin-bottom: 10px;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="auth-box">
     <h2>Вход / Регистрация</h2>
-
     <input type="email" id="email" placeholder="Email">
     <input type="password" id="password" placeholder="Пароль">
-    
     <button onclick="register()">Регистрация</button>
     <button onclick="login()">Войти</button>
   </div>
 
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
-    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
-
+  <script>
     const firebaseConfig = {
       apiKey: "AIzaSyADIXLCySVhefRQ8gl0cwe-UO4EKMWeXzk",
       authDomain: "m-arts.firebaseapp.com",
@@ -74,48 +63,37 @@
       measurementId: "G-9982YPPF1Z"
     };
 
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
 
-    window.register = () => {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-
-  createUserWithEmailAndPassword(auth, email, password)
-    .then(() => {
-      alert("Регистрация успешна");
-      window.location.href = "index.html"; // Перенаправление
-    })
-    .catch(error => alert("Ошибка: " + error.message));
-};
-
-window.login = () => {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-
-  signInWithEmailAndPassword(auth, email, password)
-    .then(() => {
-      alert("Вход выполнен");
-      window.location.href = "index.html"; // Перенаправление
-    })
-    .catch(error => alert("Ошибка: " + error.message));
-};
+    function register() {
       const email = document.getElementById("email").value;
       const password = document.getElementById("password").value;
 
-      createUserWithEmailAndPassword(auth, email, password)
-        .then(() => alert("Регистрация успешна"))
-        .catch(error => alert("Ошибка: " + error.message));
-    };
+      auth.createUserWithEmailAndPassword(email, password)
+        .then(() => {
+          alert("Регистрация прошла успешно!");
+          window.location.href = "index.html";
+        })
+        .catch((error) => {
+          alert("Ошибка регистрации: " + error.message);
+        });
+    }
 
-    window.login = () => {
+    function login() {
       const email = document.getElementById("email").value;
       const password = document.getElementById("password").value;
 
-      signInWithEmailAndPassword(auth, email, password)
-        .then(() => alert("Вход выполнен"))
-        .catch(error => alert("Ошибка: " + error.message));
-    };
+      auth.signInWithEmailAndPassword(email, password)
+        .then(() => {
+          alert("Вход выполнен!");
+          window.location.href = "index.html";
+        })
+        .catch((error) => {
+          alert("Ошибка входа: " + error.message);
+        });
+    }
   </script>
 </body>
 </html>
+    
