@@ -1,135 +1,56 @@
-<!DOCTYPE html><html lang="ru">
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>M-ART Token</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0e0e0e;
-      color: white;
-      text-align: center;
-    }
-    header img {
-      max-width: 200px;
-      margin-top: 20px;
-    }
-    .button {
-      background-color: #f9c300;
-      color: black;
-      padding: 10px 20px;
-      margin: 10px;
-      border: none;
-      cursor: pointer;
-      font-weight: bold;
-      border-radius: 5px;
-    }
-    section {
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: auto;
-    }
-    .faq, .facts {
-      text-align: left;
-      margin-top: 20px;
-    }
-    .input-group {
-      margin: 10px 0;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>M-ART Token — Главная</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="animate__animated animate__fadeInDown">
-    <img src="logo.png" alt="M-ART Logo">
-    <h1>M-ART TOKEN (MAPTC)</h1>
-    <p id="description"></p>
-    <button class="button" onclick="switchLang()" id="langBtn">EN</button>
-    <button class="button" onclick="connectWallet()" id="connectBtn">Подключить MetaMask</button>
-    <p id="wallet"></p>
-    <p>Баланс MAPTC: <span id="balance">0</span></p>
-    <a class="button" href="https://quickswap.exchange" target="_blank">Купить токен</a>
-  </header>  <section>
-    <h2>Калькулятор дохода</h2>
-    <div class="input-group">
-      <input type="number" id="amount" placeholder="Введите сумму ($)">
-      <select id="plan">
-        <option value="0.04">4% / 30 дней</option>
-        <option value="0.06">6% / 60 дней</option>
-      </select>
-      <button class="button" onclick="calculate()">Рассчитать</button>
-    </div>
-    <p id="result"></p>
-  </section>  <section>
-    <h2>Инвестировать сейчас</h2>
-    <div class="input-group">
-      <input type="text" id="walletInput" placeholder="Ваш адрес кошелька">
-      <button class="button" onclick="investNow()">Инвестировать</button>
-    </div>
-  </section>  <section class="animate__animated animate__fadeInUp">
-    <h2>Инвестиции</h2>
-    <p>M-ART — это проект, обеспечивающий безопасные инвестиции с высокой доходностью и прозрачными условиями. С нами просто, удобно и безопасно.</p><h2>Безопасность</h2>
-<p>Контракт открыт для всех. Мы используем проверенные технологии и не храним средства пользователей. Все операции проходят через MetaMask.</p>
+  <header>
+    <img src="logo.png" alt="M-ART Logo" class="logo" />
+    <nav>
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="calculator.html">Калькулятор</a></li>
+        <li><a href="invest.html">Инвестировать</a></li>
+        <li><a href="security.html">Безопасность</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Контакты</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<div class="faq">
-  <h3>FAQ</h3>
-  <p><strong>Где купить токен?</strong> — На QuickSwap по ссылке выше.</p>
-  <p><strong>Какой минимальный вклад?</strong> — От $10.</p>
-</div>
+  <main class="hero">
+    <h1>Добро пожаловать в M-ART Company</h1>
+    <p>
+      M-ART — это инновационный инвестиционный токен (MAPTC) с реальными
+      возможностями заработка, прозрачной системой и безопасной инфраструктурой.
+    </p>
 
-<div class="facts">
-  <h3>Интересные факты</h3>
-  <ul>
-    <li>До 80% прибыли в месяц.</li>
-    <li>Полностью децентрализованное приложение.</li>
-    <li>Автоматические выплаты инвесторам.</li>
-  </ul>
-</div>
+    <button onclick="connectWallet()">Подключить MetaMask</button>
+    <p id="wallet-address"></p>
 
-  </section>  <section>
-    <h2>Связаться с нами</h2>
-    <form action="mailto:artem.marunchak2908@gmail.com" method="post" enctype="text/plain">
-      <input type="text" name="name" placeholder="Ваше имя"><br>
-      <input type="email" name="email" placeholder="Email"><br>
-      <textarea name="message" placeholder="Сообщение"></textarea><br>
-      <input type="submit" value="Отправить" class="button">
-    </form>
-  </section>  <script>
-    let lang = 'ru';
+    <a href="https://quickswap.exchange" class="token-btn" target="_blank">Купить токен</a>
+  </main>
 
-    function switchLang() {
-      lang = lang === 'ru' ? 'en' : 'ru';
-      document.getElementById('langBtn').innerText = lang === 'ru' ? 'EN' : 'RU';
-      document.getElementById('description').innerText = lang === 'ru'
-        ? 'Инновационный PR-инвестиционный проект.'
-        : 'Innovative PR-investment project.';
-    }
+  <footer>
+    <p>&copy; 2025 M-ART Company. Все права защищены.</p>
+  </footer>
 
+  <script>
     async function connectWallet() {
       if (window.ethereum) {
-        const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-        const wallet = accounts[0];
-        document.getElementById('wallet').innerText = wallet;
+        try {
+          const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+          document.getElementById('wallet-address').innerText = 'Ваш адрес: ' + accounts[0];
+        } catch (err) {
+          alert('Ошибка подключения к MetaMask');
+        }
+      } else {
+        alert('Установите MetaMask для подключения');
       }
     }
-
-    function calculate() {
-      const amount = parseFloat(document.getElementById('amount').value);
-      const rate = parseFloat(document.getElementById('plan').value);
-      if (isNaN(amount)) return alert('Введите сумму');
-      const profit = amount + (amount * rate);
-      document.getElementById('result').innerText = `Прибыль: $${profit.toFixed(2)}`;
-    }
-
-    function investNow() {
-      const address = document.getElementById('walletInput').value;
-      if (!address.startsWith('0x')) {
-        alert('Введите правильный адрес кошелька');
-        return;
-      }
-      alert('Инструкция отправлена на вашу почту.');
-    }
-  </script></body>
-</html>
+  </script>
+</body>
+</html>  
