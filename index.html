@@ -1,94 +1,106 @@
 <!DOCTYPE html><html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>M-ART Company</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Montserrat', sans-serif;
-    }
     body {
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
       color: white;
-      padding: 20px;
-      text-align: center;
     }
     header {
-      padding: 20px 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      z-index: 999;
     }
-    header img {
-      max-width: 300px;
-    }
-    nav {
-      margin: 20px 0;
-    }
-    nav a {
-      color: #FFD700;
+    header a {
+      color: #ffd700;
+      margin: 10px;
       text-decoration: none;
-      margin: 0 15px;
       font-weight: bold;
+      transition: color 0.3s ease;
     }
-    .content {
-      margin-top: 30px;
+    header a:hover {
+      color: #ffffff;
+    }
+    .logo {
+      display: block;
+      margin: 30px auto 10px;
+      max-width: 300px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+    .container {
+      text-align: center;
+      padding: 20px;
+      animation: fadeIn 1s ease-in;
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1.1em;
+      max-width: 600px;
+      margin: 0 auto 20px;
+      line-height: 1.6;
     }
     .button {
-      margin-top: 20px;
+      background-color: #ffd700;
+      color: black;
       padding: 12px 24px;
-      background: #FFD700;
-      color: #000;
       border: none;
-      border-radius: 5px;
-      font-size: 16px;
+      border-radius: 8px;
+      font-size: 1em;
       cursor: pointer;
-      transition: background 0.3s ease;
+      margin: 10px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
     }
     .button:hover {
-      background: #e6c200;
+      background-color: #ffcc00;
+      transform: scale(1.05);
     }
-    footer {
-      margin-top: 50px;
-      font-size: 12px;
-      color: #ccc;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="logo.png" alt="M-ART Logo">
-  </header>  <nav>
     <a href="index.html">Главная</a>
     <a href="calculator.html">Калькулятор</a>
     <a href="invest.html">Инвестировать</a>
     <a href="security.html">Безопасность</a>
     <a href="faq.html">FAQ</a>
     <a href="contact.html">Контакты</a>
-  </nav>  <div class="content">
+  </header>  <a href="index.html">
+    <img src="logo.png" alt="M-ART Logo" class="logo" />
+  </a>  <div class="container">
     <h1>Добро пожаловать в M-ART Company</h1>
-    <p style="margin-top: 20px; max-width: 600px; margin-left: auto; margin-right: auto;">
-      M-ART — это инновационный инвестиционный токен (MAPTC) с реальными возможностями заработка, прозрачной системой и безопасной инфраструктурой. Получайте доход до 80% в месяц, инвестируя в PR-проекты.
-    </p><button class="button" onclick="connectWallet()">Подключить MetaMask</button>
-<button class="button" onclick="window.open('https://quickswap.exchange', '_blank')">Купить токен</button>
+    <p>M-ART — это инновационный инвестиционный токен (MAPTC) с реальными возможностями заработка, прозрачной системой и безопасной инфраструктурой. Получайте доход до 80% в месяц, инвестируя в PR-проекты.</p><button class="button" onclick="connectWallet()">Подключить MetaMask</button>
+<a href="https://quickswap.exchange" target="_blank"><button class="button">Купить токен</button></a>
 
-<div id="wallet" style="margin-top: 20px;"></div>
-
-  </div>  <footer>
-    <p>© 2025 M-ART Company. Все права защищены.</p>
-  </footer>  <script>
+  </div>  <script>
     async function connectWallet() {
-      if (typeof window.ethereum !== 'undefined') {
+      if (window.ethereum) {
         try {
-          const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-          const wallet = accounts[0];
-          document.getElementById('wallet').innerText = `Ваш кошелек: ${wallet}`;
-        } catch (err) {
-          alert("Ошибка подключения: " + err.message);
+          const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+          alert(`Подключён: ${accounts[0]}`);
+        } catch (error) {
+          console.error(error);
+          alert("Ошибка подключения к MetaMask");
         }
       } else {
-        alert('MetaMask не установлен');
+        alert("Установите MetaMask для подключения");
       }
     }
   </script></body>
