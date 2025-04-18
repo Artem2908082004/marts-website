@@ -1,0 +1,73 @@
+<!DOCTYPE html><html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Регистрация | M-ART</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(120deg, #002b36, #004d66);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    form {
+      background: #012b39;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      width: 100%;
+      max-width: 400px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+    }
+    button {
+      background: #ffcc00;
+      color: black;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+    }
+    .message {
+      margin-top: 10px;
+      color: #66ff66;
+    }
+  </style>
+</head>
+<body>
+  <h1>Регистрация в M-ART</h1>
+  <form id="registerForm">
+    <input type="text" placeholder="Имя пользователя" required id="username">
+    <input type="email" placeholder="Email" required id="email">
+    <input type="password" placeholder="Пароль" required id="password">
+    <button type="submit">Зарегистрироваться</button>
+    <div class="message" id="message"></div>
+  </form>  <script>
+    const form = document.getElementById('registerForm');
+    const message = document.getElementById('message');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const username = document.getElementById('username').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      localStorage.setItem('user', JSON.stringify({ username, email, password }));
+      message.textContent = 'Регистрация успешна!';
+      form.reset();
+    });
+  </script></body>
+</html>
