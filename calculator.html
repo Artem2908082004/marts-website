@@ -1,1 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Калькулятор дохода</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="M-ART Company Logo" class="logo">
+    <nav>
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="calculator.html">Калькулятор</a></li>
+        <li><a href="invest.html">Инвестировать</a></li>
+        <li><a href="security.html">Безопасность</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Контакты</a></li>
+      </ul>
+    </nav>
+  </header>
 
+  <main>
+    <h2>Калькулятор дохода</h2>
+    <p>Введите сумму и выберите план:</p>
+    <input type="number" id="amount" placeholder="Сумма ($)">
+    <select id="plan">
+      <option value="0.04">4% / 30 дней</option>
+      <option value="0.06">6% / 60 дней</option>
+      <option value="0.08">8% / 90 дней</option>
+    </select>
+    <button onclick="calculate()">Рассчитать</button>
+    <p id="result"></p>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 M-ART Company. Все права защищены.</p>
+  </footer>
+
+  <script>
+    function calculate() {
+      const amount = parseFloat(document.getElementById('amount').value);
+      const rate = parseFloat(document.getElementById('plan').value);
+      if (!isNaN(amount)) {
+        const profit = amount + (amount * rate);
+        document.getElementById('result').innerText = `Доход: $${profit.toFixed(2)}`;
+      } else {
+        document.getElementById('result').innerText = 'Введите корректную сумму';
+      }
+    }
+  </script>
+</body>
+</html>
