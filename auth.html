@@ -78,6 +78,28 @@
     const auth = getAuth(app);
 
     window.register = () => {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  createUserWithEmailAndPassword(auth, email, password)
+    .then(() => {
+      alert("Регистрация успешна");
+      window.location.href = "index.html"; // Перенаправление
+    })
+    .catch(error => alert("Ошибка: " + error.message));
+};
+
+window.login = () => {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  signInWithEmailAndPassword(auth, email, password)
+    .then(() => {
+      alert("Вход выполнен");
+      window.location.href = "index.html"; // Перенаправление
+    })
+    .catch(error => alert("Ошибка: " + error.message));
+};
       const email = document.getElementById("email").value;
       const password = document.getElementById("password").value;
 
