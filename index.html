@@ -3,105 +3,78 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>M-ART Company</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
-      color: white;
-    }
-    header {
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 10px 20px;
-      position: sticky;
-      top: 0;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      z-index: 999;
-    }
-    header a {
-      color: #ffd700;
-      margin: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-    header a:hover {
-      color: #ffffff;
-    }
-    .logo {
-      display: block;
-      margin: 30px auto 10px;
-      max-width: 300px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-    }
-    .container {
-      text-align: center;
-      padding: 20px;
-      animation: fadeIn 1s ease-in;
-    }
-    h1 {
-      font-size: 2em;
-      margin-bottom: 10px;
-    }
-    p {
-      font-size: 1.1em;
-      max-width: 600px;
-      margin: 0 auto 20px;
-      line-height: 1.6;
-    }
-    .button {
-      background-color: #ffd700;
-      color: black;
-      padding: 12px 24px;
-      border: none;
-      border-radius: 8px;
-      font-size: 1em;
-      cursor: pointer;
-      margin: 10px;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-    .button:hover {
-      background-color: #ffcc00;
-      transform: scale(1.05);
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
 </head>
 <body>
   <header>
-    <a href="index.html">Главная</a>
-    <a href="calculator.html">Калькулятор</a>
-    <a href="invest.html">Инвестировать</a>
-    <a href="security.html">Безопасность</a>
-    <a href="faq.html">FAQ</a>
-    <a href="contact.html">Контакты</a>
-  </header>  <a href="index.html">
-    <img src="logo.png" alt="M-ART Logo" class="logo" />
-  </a>  <div class="container">
-    <h1>Добро пожаловать в M-ART Company</h1>
-    <p>M-ART — это инновационный инвестиционный токен (MAPTC) с реальными возможностями заработка, прозрачной системой и безопасной инфраструктурой. Получайте доход до 80% в месяц, инвестируя в PR-проекты.</p><button class="button" onclick="connectWallet()">Подключить MetaMask</button>
-<a href="https://quickswap.exchange" target="_blank"><button class="button">Купить токен</button></a>
+    <nav class="nav">
+      <a href="index.html">Главная</a>
+      <a href="calculator.html">Калькулятор</a>
+      <a href="invest.html">Инвестировать</a>
+      <a href="security.html">Безопасность</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Контакты</a>
+    </nav>
+  </header>  <main class="main">
+    <img src="logo.png" alt="M-ART Company Logo" class="logo" />
+    <h1>Добро пожаловать в <br />M-ART Company</h1>
+    <p>
+      M-ART — это инновационный инвестиционный токен (MAPTC) с реальными возможностями заработка,
+      прозрачной системой и безопасной инфраструктурой. Получайте доход до 80% в месяц, инвестируя в PR-проекты.
+    </p><button id="connectWallet">Подключить MetaMask</button>
+<a href="https://quickswap.exchange/#/swap?outputCurrency=ВАШ_АДРЕС_ТОКЕНА" target="_blank">
+  <button class="buy-button">Купить токен</button>
+</a>
 
-  </div>  <script>
-    async function connectWallet() {
-      if (window.ethereum) {
+<section style="padding: 50px 20px; max-width: 900px; margin: auto; color: white; font-size: 18px; line-height: 1.6;">
+  <h2 style="text-align: center; font-size: 26px; margin-bottom: 30px;">Что такое M-ART Company?</h2>
+  <p>
+    В мире, где инвестиции становятся всё более сложными, а доверие к финансовым инструментам снижается,
+    мы создаём альтернативу. M-ART Company — это не просто токен. Это философия. Это движение. Это прозрачность,
+    безопасность и реальные возможности для каждого.
+  </p>
+  <p>
+    Мы объединили инвестиции, технологии блокчейна и рекламный рынок в одном месте, чтобы дать каждому человеку,
+    независимо от опыта и капитала, шанс войти в мир финансовой независимости.
+  </p>
+  <p>
+    Представьте себе платформу, где ваши средства работают на вас 24/7. Где каждый вклад защищён смарт-контрактом.
+    Где вы не просто инвестируете — вы становитесь частью инновационного движения. 
+  </p>
+  <p>
+    M-ART TOKEN (MAPTC) создан на базе блокчейна Polygon. Это означает быстрые и дешёвые транзакции, высокую
+    безопасность и доступность в любой точке мира. 
+  </p>
+  <p>
+    Вы можете зарабатывать до <strong>80% в месяц</strong>, инвестируя в проверенные PR-проекты. Хотите больше? 
+    Распространяйте информацию, привлекайте новых участников, стройте своё сообщество. M-ART — это возможности, 
+    которые раньше были доступны только крупным инвесторам и агентствам.
+  </p>
+  <p>
+    Мы не храним ваши данные. Мы не контролируем ваши деньги. Вы — единственный владелец своих активов. 
+    Только вы решаете, когда и сколько инвестировать. А мы — создаём для этого лучшие условия.
+  </p>
+  <p style="margin-top: 30px; font-weight: bold; text-align: center;">
+    Добро пожаловать в будущее. Добро пожаловать в M-ART Company.
+  </p>
+</section>
+
+  </main>  <footer>
+    <p>&copy; 2025 M-ART Company. Все права защищены.</p>
+  </footer>  <script>
+    const connectWalletBtn = document.getElementById('connectWallet');
+    connectWalletBtn.addEventListener('click', async () => {
+      if (typeof window.ethereum !== 'undefined') {
         try {
           const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-          alert(`Подключён: ${accounts[0]}`);
+          alert(`Кошелек подключен: ${accounts[0]}`);
         } catch (error) {
-          console.error(error);
-          alert("Ошибка подключения к MetaMask");
+          alert('Ошибка подключения: ' + error.message);
         }
       } else {
-        alert("Установите MetaMask для подключения");
+        alert('MetaMask не установлен. Пожалуйста, установите MetaMask и попробуйте снова.');
       }
-    }
+    });
   </script></body>
 </html>
