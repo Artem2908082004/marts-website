@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Личный кабинет</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #003147, #002237);
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #00000060;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #00000066;
+      text-align: center;
+    }
+
+    button {
+      background-color: gold;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      margin-top: 20px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #e6c200;
+    }
+  </style>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyADIXLCySVhefRQ8gl0cwe-UO4EKMWeXzk",
+      authDomain: "m-arts.firebaseapp.com",
+      projectId: "m-arts",
+      storageBucket: "m-arts.firebasestorage.app",
+      messagingSenderId: "205706301791",
+      appId: "1:205706301791:web:343913413143c7e67d26ea",
+      measurementId: "G-9982YPPF1Z"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        document.getElementById("userEmail").textContent = user.email;
+      } else {
+        window.location.href = "auth.html";
+      }
+    });
+
+    window.logout = () => {
+      signOut(auth).then(() => {
+        window.location.href = "index.html";
+      });
+    };
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h2>Личный кабинет</h2>
+    <p>Вы вошли как: <strong id="userEmail">Загрузка...</strong></p>
+    <button onclick="logout()">Выйти</button>
+  </div>
+</body>
+</html>
