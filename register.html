@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Регистрация | M-ART</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #06283D, #256D85);
+      font-family: Arial, sans-serif;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    form {
+      background: #00000060;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #00000066;
+      width: 100%;
+      max-width: 400px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #FFD700;
+      color: black;
+      font-weight: bold;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h1>Регистрация</h1>
+  <form onsubmit="registerUser(event)">
+    <input type="text" id="username" placeholder="Имя пользователя" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Пароль" required>
+    <button type="submit">Зарегистрироваться</button>
+  </form>
+
+  <script>
+    function registerUser(e) {
+      e.preventDefault();
+      const username = document.getElementById("username").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      const user = { username, email, password };
+      localStorage.setItem("user", JSON.stringify(user));
+      alert("Регистрация прошла успешно!");
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
