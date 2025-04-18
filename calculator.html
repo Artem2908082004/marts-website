@@ -1,98 +1,79 @@
-<!DOCTYPE html>
-<html lang="ru">
+<!DOCTYPE html><html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Калькулятор дохода - M-ART</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Калькулятор дохода</title>
+  <link rel="stylesheet" href="style.css" />
   <style>
     body {
+      background: linear-gradient(to right, #003840, #005f73);
       font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-      color: white;
+      color: #fff;
+      padding: 20px;
       text-align: center;
-      margin: 0;
-      padding: 0;
-    }
-    header img {
-      width: 200px;
-      margin-top: 20px;
-    }
-    nav {
-      margin: 20px 0;
-    }
-    nav a {
-      margin: 0 10px;
-      color: gold;
-      text-decoration: none;
-      font-weight: bold;
     }
     h1 {
-      font-size: 28px;
+      font-size: 2em;
+      margin-bottom: 20px;
     }
-    .container {
-      max-width: 400px;
-      margin: 30px auto;
-      padding: 20px;
-      background: rgba(0,0,0,0.4);
+    .calculator {
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 30px;
       border-radius: 10px;
+      display: inline-block;
     }
     input, select, button {
-      margin-top: 10px;
       padding: 10px;
-      width: 100%;
-      border: none;
+      font-size: 1em;
+      margin: 10px 0;
       border-radius: 5px;
+      border: none;
+      width: 80%;
     }
     button {
-      background-color: gold;
-      color: black;
-      font-weight: bold;
+      background-color: #ffcc00;
+      color: #000;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
-    #result {
-      margin-top: 15px;
-      font-size: 18px;
-      color: lightgreen;
+    button:hover {
+      background-color: #e6b800;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 1.2em;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="logo.png" alt="Логотип M-ART">
-  </header>
-
-  <nav>
-    <a href="index.html">Главная</a>
-    <a href="calculator.html">Калькулятор</a>
-    <a href="invest.html">Инвестировать</a>
-    <a href="security.html">Безопасность</a>
-    <a href="faq.html">FAQ</a>
-    <a href="contact.html">Контакты</a>
-  </nav>
-
-  <div class="container">
-    <h1>Калькулятор дохода</h1>
-    <input type="number" id="amount" placeholder="Введите сумму ($)">
+  <h1>Калькулятор дохода</h1>
+  <div class="calculator">
+    <input type="number" id="amount" placeholder="Введите сумму ($)" />
     <select id="plan">
-      <option value="4">4% / 30 дней</option>
-      <option value="6">6% / 60 дней</option>
-      <option value="10">10% / 90 дней</option>
+      <option value="4-30">4% / 30 дней</option>
+      <option value="6-60">6% / 60 дней</option>
+      <option value="8-90">8% / 90 дней</option>
     </select>
     <button onclick="calculate()">Рассчитать</button>
-    <div id="result"></div>
-  </div>
-
-  <script>
+    <div class="result" id="result"></div>
+  </div>  <script>
     function calculate() {
-      const amount = parseFloat(document.getElementById("amount").value);
-      const percent = parseFloat(document.getElementById("plan").value);
-      const profit = amount + (amount * percent / 100);
-      if (!isNaN(profit)) {
-        document.getElementById("result").innerText = 
-          `Ваш доход составит: $${profit.toFixed(2)}`;
-      } else {
-        document.getElementById("result").innerText = "Введите корректную сумму.";
+      const amount = parseFloat(document.getElementById('amount').value);
+      const plan = document.getElementById('plan').value;
+      const [percent, days] = plan.split('-').map(Number);
+
+      if (isNaN(amount) || amount <= 0) {
+        document.getElementById('result').textContent = 'Введите корректную сумму';
+        return;
       }
+
+      const profit = amount * (percent / 100);
+      const total = amount + profit;
+
+      document.getElementById('result').textContent = `Ваш доход за ${days} дней: $${profit.toFixed(2)}. Общая сумма: $${total.toFixed(2)}`;
     }
-  </script>
-</body>
+  </script></body>
 </html>
+  
+    
