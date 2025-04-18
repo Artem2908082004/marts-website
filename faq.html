@@ -1,31 +1,117 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>FAQ — Часто задаваемые вопросы</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <title>FAQ - M-ART Company</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: white;
+    }
+    header {
+      text-align: center;
+      padding: 20px;
+    }
+    header img {
+      width: 180px;
+    }
+    nav {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    nav a {
+      margin: 0 10px;
+      color: gold;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #FFD700;
+    }
+    .faq-item {
+      margin-bottom: 25px;
+    }
+    .faq-item h2 {
+      color: #ffcc00;
+      font-size: 1.2em;
+      margin-bottom: 5px;
+    }
+    .faq-item p {
+      line-height: 1.6;
+      margin: 0;
+    }
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      color: #bbb;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <img src="logo.png" alt="M-ART Company Logo" class="logo">
-    <nav>
-      <ul>
-        <li><a href="index.html">Главная</a></li>
-        <li><a href="calculator.html">Калькулятор</a></li>
-        <li><a href="invest.html">Инвестировать</a></li>
-        <li><a href="security.html">Безопасность</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li><a href="contact.html">Контакты</a></li>
-      </ul>
-    </nav>
+    <img src="logo.png" alt="M-ART Logo">
   </header>
 
-  <main>
-    <h2>Часто задаваемые вопросы</h2>
-    <div style="text-align: left; max-width: 800px; margin: auto;">
-      <p><strong>1. Где купить токен M-ART?</strong><br>На платформе QuickSwap по официальной ссылке.</p>
+  <nav>
+    <a href="index.html">Главная</a>
+    <a href="calculator.html">Калькулятор</a>
+    <a href="invest.html">Инвестировать</a>
+    <a href="security.html">Безопасность</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Контакты</a>
+  </nav>
 
-      <p><strong>2. Какая минимальная сумма для инвестиций?</strong><br>Минимальный вклад — $10 в эквиваленте MATIC или USDT.</p>
+  <div class="container">
+    <h1>Часто задаваемые вопросы</h1>
 
-      <p><strong>3. Какие проценты доходности?</strong><br>Вы можете получить от 4% до 8% ежедневно в зависимости от выбранного плана.</p
+    <div class="faq-item">
+      <h2>Что такое M-ART Token (MAPTC)?</h2>
+      <p>M-ART — это инвестиционный токен на блокчейне Polygon, позволяющий зарабатывать на инвестициях и продвижении проектов.</p>
+    </div>
+
+    <div class="faq-item">
+      <h2>Как купить токен MAPTC?</h2>
+      <p>Вы можете приобрести MAPTC через QuickSwap, используя USDT или другие поддерживаемые токены.</p>
+    </div>
+
+    <div class="faq-item">
+      <h2>Какая доходность у инвестиций?</h2>
+      <p>Доходность зависит от выбранного плана в калькуляторе дохода — до 80% годовых.</p>
+    </div>
+
+    <div class="faq-item">
+      <h2>Где хранятся мои токены?</h2>
+      <p>Все токены находятся на вашем кошельке MetaMask. Мы не имеем доступа к вашим средствам.</p>
+    </div>
+
+    <div class="faq-item">
+      <h2>Какую сеть использовать?</h2>
+      <p>Мы работаем на сети Polygon (MATIC). Убедитесь, что ваш MetaMask подключён к этой сети.</p>
+    </div>
+
+    <div class="faq-item">
+      <h2>Что делать, если возникли трудности?</h2>
+      <p>Вы можете связаться с нами через <a href="contact.html" style="color: #FFD700;">контактную форму</a> — мы обязательно поможем!</p>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 M-ART Company. Все права защищены.
+  </footer>
+</body>
+</html>
