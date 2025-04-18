@@ -1,28 +1,33 @@
-<!-- предыдущий HTML остаётся без изменений до блока калькулятора -->  <section id="calculator">
+<!-- предыдущий HTML остаётся без изменений до блока калькулятора -->
+
+  <section id="calculator">
     <h2 data-lang="ru">Калькулятор дохода</h2>
-    <h2 data-lang="en" style="display:none">Profit Calculator</h2><p data-lang="ru">Введите сумму и выберите план:</p>
-<p data-lang="en" style="display:none">Enter amount and select plan:</p>
+    <h2 data-lang="en" style="display:none">Profit Calculator</h2>
 
-<input type="number" id="amount" placeholder="Сумма ($)" style="padding:10px; width:200px; margin-bottom:10px;"><br>
-<select id="plan" style="padding:10px; width:220px;">
-  <option value="4">4% / 30 дней</option>
-  <option value="5">5% / 15 дней</option>
-  <option value="6">6% / 10 дней</option>
-</select><br><br>
-<button onclick="calculateProfit()" style="padding:10px 20px; background:#fbbc04; font-weight:bold; border:none; border-radius:5px;">Рассчитать</button>
+    <p data-lang="ru">Введите сумму и выберите план:</p>
+    <p data-lang="en" style="display:none">Enter amount and select plan:</p>
 
-<p id="result" style="margin-top:15px; font-size:1.1em;"></p>
+    <input type="number" id="amount" placeholder="Сумма ($)" style="padding:10px; width:200px; margin-bottom:10px;"><br>
+    <select id="plan" style="padding:10px; width:220px;">
+      <option value="4">4% / 30 дней</option>
+      <option value="5">5% / 15 дней</option>
+      <option value="6">6% / 10 дней</option>
+    </select><br><br>
+    <button onclick="calculateProfit()" style="padding:10px 20px; background:#fbbc04; font-weight:bold; border:none; border-radius:5px;">Рассчитать</button>
 
-<div style="margin-top: 25px;">
-  <h3>Инвестировать сейчас</h3>
-  <p>Введите адрес вашего кошелька для получения инструкций</p>
-  <input type="text" id="investWallet" placeholder="0x..." style="padding:10px; width:300px;">
-  <br>
-  <button onclick="submitInvestment()" style="margin-top:10px; padding:10px 20px; background:#34a853; color:#fff; font-weight:bold; border:none; border-radius:5px;">Инвестировать сейчас</button>
-  <p id="investConfirm" style="margin-top:10px; color:#0f0;"></p>
-</div>
+    <p id="result" style="margin-top:15px; font-size:1.1em;"></p>
 
-  </section>  <script>
+    <div style="margin-top: 25px;">
+      <h3>Инвестировать сейчас</h3>
+      <p>Введите адрес вашего кошелька для получения инструкций</p>
+      <input type="text" id="investWallet" placeholder="0x..." style="padding:10px; width:300px;">
+      <br>
+      <button onclick="submitInvestment()" style="margin-top:10px; padding:10px 20px; background:#34a853; color:#fff; font-weight:bold; border:none; border-radius:5px;">Инвестировать сейчас</button>
+      <p id="investConfirm" style="margin-top:10px; color:#0f0;"></p>
+    </div>
+  </section>
+
+  <script>
     function calculateProfit() {
       const amount = parseFloat(document.getElementById('amount').value);
       const rate = parseFloat(document.getElementById('plan').value);
@@ -46,4 +51,7 @@
       document.getElementById('investConfirm').style.color = '#0f0';
       document.getElementById('investConfirm').textContent = `Инструкция по инвестициям будет отправлена на кошелёк: ${wallet}`;
     }
-  </script><!-- остальные разделы без изменений -->
+  </script>
+
+<!-- остальные разделы без изменений -->
+          
