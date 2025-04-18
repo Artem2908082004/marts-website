@@ -3,78 +3,95 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>M-ART Company</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #001f2d, #003147);
+      color: white;
+    }
+    header {
+      background-color: #000000cc;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    header a {
+      margin: 10px;
+      color: gold;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    header a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      text-align: center;
+      padding: 30px;
+    }
+    img.logo {
+      max-width: 300px;
+      margin: 20px auto;
+      display: block;
+    }
+    h1 {
+      font-size: 2.5em;
+    }
+    .buttons button {
+      background-color: gold;
+      border: none;
+      color: black;
+      padding: 10px 25px;
+      font-size: 1.1em;
+      margin: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .section {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #ffffff10;
+      border-radius: 10px;
+    }
+    .section h2 {
+      color: gold;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <nav class="nav">
-      <a href="index.html">Главная</a>
-      <a href="calculator.html">Калькулятор</a>
-      <a href="invest.html">Инвестировать</a>
-      <a href="security.html">Безопасность</a>
-      <a href="faq.html">FAQ</a>
-      <a href="contact.html">Контакты</a>
-    </nav>
-  </header>  <main class="main">
-    <img src="logo.png" alt="M-ART Company Logo" class="logo" />
-    <h1>Добро пожаловать в <br />M-ART Company</h1>
-    <p>
-      M-ART — это инновационный инвестиционный токен (MAPTC) с реальными возможностями заработка,
-      прозрачной системой и безопасной инфраструктурой. Получайте доход до 80% в месяц, инвестируя в PR-проекты.
-    </p><button id="connectWallet">Подключить MetaMask</button>
-<a href="https://quickswap.exchange/#/swap?outputCurrency=ВАШ_АДРЕС_ТОКЕНА" target="_blank">
-  <button class="buy-button">Купить токен</button>
-</a>
-
-<section style="padding: 50px 20px; max-width: 900px; margin: auto; color: white; font-size: 18px; line-height: 1.6;">
-  <h2 style="text-align: center; font-size: 26px; margin-bottom: 30px;">Что такое M-ART Company?</h2>
-  <p>
-    В мире, где инвестиции становятся всё более сложными, а доверие к финансовым инструментам снижается,
-    мы создаём альтернативу. M-ART Company — это не просто токен. Это философия. Это движение. Это прозрачность,
-    безопасность и реальные возможности для каждого.
-  </p>
-  <p>
-    Мы объединили инвестиции, технологии блокчейна и рекламный рынок в одном месте, чтобы дать каждому человеку,
-    независимо от опыта и капитала, шанс войти в мир финансовой независимости.
-  </p>
-  <p>
-    Представьте себе платформу, где ваши средства работают на вас 24/7. Где каждый вклад защищён смарт-контрактом.
-    Где вы не просто инвестируете — вы становитесь частью инновационного движения. 
-  </p>
-  <p>
-    M-ART TOKEN (MAPTC) создан на базе блокчейна Polygon. Это означает быстрые и дешёвые транзакции, высокую
-    безопасность и доступность в любой точке мира. 
-  </p>
-  <p>
-    Вы можете зарабатывать до <strong>80% в месяц</strong>, инвестируя в проверенные PR-проекты. Хотите больше? 
-    Распространяйте информацию, привлекайте новых участников, стройте своё сообщество. M-ART — это возможности, 
-    которые раньше были доступны только крупным инвесторам и агентствам.
-  </p>
-  <p>
-    Мы не храним ваши данные. Мы не контролируем ваши деньги. Вы — единственный владелец своих активов. 
-    Только вы решаете, когда и сколько инвестировать. А мы — создаём для этого лучшие условия.
-  </p>
-  <p style="margin-top: 30px; font-weight: bold; text-align: center;">
-    Добро пожаловать в будущее. Добро пожаловать в M-ART Company.
-  </p>
-</section>
-
-  </main>  <footer>
-    <p>&copy; 2025 M-ART Company. Все права защищены.</p>
-  </footer>  <script>
-    const connectWalletBtn = document.getElementById('connectWallet');
-    connectWalletBtn.addEventListener('click', async () => {
-      if (typeof window.ethereum !== 'undefined') {
-        try {
-          const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-          alert(`Кошелек подключен: ${accounts[0]}`);
-        } catch (error) {
-          alert('Ошибка подключения: ' + error.message);
-        }
-      } else {
-        alert('MetaMask не установлен. Пожалуйста, установите MetaMask и попробуйте снова.');
-      }
-    });
-  </script></body>
+    <a href="index.html">Главная</a>
+    <a href="calculator.html">Калькулятор</a>
+    <a href="invest.html">Инвестировать</a>
+    <a href="security.html">Безопасность</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Контакты</a>
+  </header>  <div class="container">
+    <img src="logo.png" alt="M-ART Logo" class="logo">
+    <h1>Добро пожаловать в M-ART Company</h1>
+    <p>M-ART — это инновационный инвестиционный токен (MAPTC) с реальными возможностями заработка, прозрачной системой и безопасной инфраструктурой. Получайте доход до 80% в месяц, инвестируя в PR-проекты.</p>
+    <div class="buttons">
+      <button onclick="alert('MetaMask подключение...')">Подключить MetaMask</button>
+      <button onclick="window.open('https://quickswap.exchange/', '_blank')">Купить токен</button>
+    </div>
+  </div>  <div class="section">
+    <h2>О проекте</h2>
+    <p>M-ART создан для объединения инвесторов и рекламных платформ. Мы предлагаем не просто токен, а доступ к экосистеме, где каждый участник может зарабатывать через инвестиции, рекламу и продвижение.</p>
+  </div>  <div class="section">
+    <h2>Почему выбирают нас</h2>
+    <ul>
+      <li>Прозрачные смарт-контракты на блокчейне Polygon</li>
+      <li>Никаких скрытых комиссий</li>
+      <li>Высокий доход до 80% в месяц</li>
+      <li>Удобство подключения через MetaMask</li>
+    </ul>
+  </div>  <div class="section">
+    <h2>Миссия и цели</h2>
+    <p>Наша цель — создать безопасное и прозрачное пространство для инвестиций. Мы строим доверие между рекламодателями, инвесторами и пользователями, объединяя их в единую платформу с токеном MAPTC.</p>
+  </div>  <div class="container" style="padding-bottom: 30px; font-size: 0.9em; color: #ccc">
+    © 2025 M-ART Company. Все права защищены.
+  </div>
+</body>
 </html>
