@@ -5,86 +5,112 @@
   <title>Калькулятор дохода</title>
   <style>
     body {
-      background: linear-gradient(to bottom right, #004d66, #001f33);
-      color: white;
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #003b4d, #004d40);
+      color: white;
     }
-    .calculator {
-      background: #002a3d;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
-      width: 90%;
-      max-width: 400px;
+    header {
+      background: #000;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    header img {
+      height: 50px;
+    }
+    nav a {
+      color: #ffcc00;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      max-width: 500px;
+      margin: 50px auto;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 10px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 1.5em;
+      margin-bottom: 20px;
     }
     input, select, button {
       width: 100%;
       padding: 10px;
       margin: 10px 0;
-      font-size: 16px;
-      border-radius: 8px;
       border: none;
+      border-radius: 5px;
     }
     button {
-      background: #ffcc00;
+      background-color: #ffcc00;
       font-weight: bold;
+      color: #000;
       cursor: pointer;
     }
+    button:hover {
+      background-color: #e6b800;
+    }
     .result {
-      margin-top: 15px;
+      text-align: center;
+      font-size: 1.2em;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
-  <div class="calculator">
-    <h2>Калькулятор дохода</h2>
+  <header>
+    <img src="logo.png" alt="M-ART Logo">
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="calculator.html">Калькулятор</a>
+      <a href="invest.html">Инвестировать</a>
+      <a href="security.html">Безопасность</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Контакты</a>
+    </nav>
+  </header>  <div class="container">
+    <h1>Калькулятор дохода</h1>
     <input type="number" id="amount" placeholder="Введите сумму ($)">
     <select id="plan">
       <option value="4">4% / день (ежедневный вывод)</option>
-      <option value="5">5% / каждые 10 дней (3 выплаты)</option>
-      <option value="6">6% / в конце 30 дней (1 выплата)</option>
+      <option value="5">5% / каждые 10 дней</option>
+      <option value="6">6% / в конце месяца</option>
     </select>
-    <button onclick="calculate()">Рассчитать</button>
+    <button onclick="calculateIncome()">Рассчитать</button>
     <div class="result" id="result"></div>
   </div>  <script>
-    function calculate() {
-      const amount = parseFloat(document.getElementById('amount').value);
-      const plan = document.getElementById('plan').value;
-      let percent = 0;
-      let payout = "";
+    function calculateIncome() {
+      const amount = parseFloat(document.getElementById("amount").value);
+      const plan = parseInt(document.getElementById("plan").value);
 
       if (isNaN(amount) || amount <= 0) {
-        document.getElementById('result').innerHTML = 'Введите корректную сумму';
+        document.getElementById("result").innerText = "Введите корректную сумму.";
         return;
       }
 
-      switch(plan) {
-        case "4":
-          percent = 1.2; // 120%
-          payout = "Начисление 4% каждый день. Можно выводить ежедневно.";
-          break;
-        case "5":
-          percent = 1.5; // 150%
-          payout = "Выплаты через 10, 20 и 30 дней. По 50% каждая.";
-          break;
-        case "6":
-          percent = 1.8; // 180%
-          payout = "Вся сумма начисляется в конце 30 дней.";
-          break;
+      let profit = 0;
+      let message = "";
+
+      if (plan === 4) {
+        profit = amount * 0.04 * 30;
+        message = `Вы будете получать $${(amount * 0.04).toFixed(2)} ежедневно.\nОбщий доход за 30 дней: $${profit.toFixed(2)}.`;
+      } else if (plan === 5) {
+        profit = amount * 0.05 * 3;
+        message = `Вы получите $${(amount * 0.05).toFixed(2)} каждые 10 дней.\nОбщий доход за 30 дней: $${profit.toFixed(2)}.`;
+      } else if (plan === 6) {
+        profit = amount * 0.06 * 30;
+        message = `Вы получите всю сумму $${profit.toFixed(2)} в конце месяца.`;
       }
 
-      const profit = amount * (percent - 1);
-      const total = amount * percent;
-
-      document.getElementById('result').innerHTML =
-        `<strong>Доход:</strong> $${profit.toFixed(2)}<br>
-         <strong>Общая сумма:</strong> $${total.toFixed(2)}<br>
-         <strong>Детали выплат:</strong> ${payout}`;
+      document.getElementById("result").innerText = message;
     }
   </script></body>
 </html>
