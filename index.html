@@ -1,92 +1,49 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>M-ART Token</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #0e0e0e;
-      color: white;
-      font-family: Arial, sans-serif;
-    }
+<!-- предыдущий HTML остаётся без изменений до блока калькулятора -->  <section id="calculator">
+    <h2 data-lang="ru">Калькулятор дохода</h2>
+    <h2 data-lang="en" style="display:none">Profit Calculator</h2><p data-lang="ru">Введите сумму и выберите план:</p>
+<p data-lang="en" style="display:none">Enter amount and select plan:</p>
 
-    header {
-      padding: 20px;
-      text-align: center;
-      background: #1e1e1e;
-    }
+<input type="number" id="amount" placeholder="Сумма ($)" style="padding:10px; width:200px; margin-bottom:10px;"><br>
+<select id="plan" style="padding:10px; width:220px;">
+  <option value="4">4% / 30 дней</option>
+  <option value="5">5% / 15 дней</option>
+  <option value="6">6% / 10 дней</option>
+</select><br><br>
+<button onclick="calculateProfit()" style="padding:10px 20px; background:#fbbc04; font-weight:bold; border:none; border-radius:5px;">Рассчитать</button>
 
-    header img {
-      max-width: 150px;
-    }
+<p id="result" style="margin-top:15px; font-size:1.1em;"></p>
 
-    h1 {
-      margin-top: 10px;
-      font-size: 2.2em;
-    }
+<div style="margin-top: 25px;">
+  <h3>Инвестировать сейчас</h3>
+  <p>Введите адрес вашего кошелька для получения инструкций</p>
+  <input type="text" id="investWallet" placeholder="0x..." style="padding:10px; width:300px;">
+  <br>
+  <button onclick="submitInvestment()" style="margin-top:10px; padding:10px 20px; background:#34a853; color:#fff; font-weight:bold; border:none; border-radius:5px;">Инвестировать сейчас</button>
+  <p id="investConfirm" style="margin-top:10px; color:#0f0;"></p>
+</div>
 
-    .about {
-      text-align: center;
-      padding: 30px;
-      max-width: 600px;
-      margin: auto;
-      font-size: 1.1em;
-    }
-
-    .cta {
-      text-align: center;
-      margin: 30px;
-    }
-
-    .cta button {
-      background: #f0b000;
-      border: none;
-      padding: 15px 30px;
-      font-size: 1em;
-      font-weight: bold;
-      color: black;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    footer {
-      background: #1e1e1e;
-      color: #888;
-      padding: 20px;
-      text-align: center;
-      font-size: 0.9em;
-    }
-
-    @media (max-width: 500px) {
-      .about {
-        padding: 15px;
-        font-size: 1em;
+  </section>  <script>
+    function calculateProfit() {
+      const amount = parseFloat(document.getElementById('amount').value);
+      const rate = parseFloat(document.getElementById('plan').value);
+      const days = rate === 4 ? 30 : rate === 5 ? 15 : 10;
+      if (!amount || amount <= 0) {
+        document.getElementById('result').textContent = 'Введите корректную сумму';
+        return;
       }
+      const profit = amount * rate / 100 * days;
+      const total = amount + profit;
+      document.getElementById('result').textContent = `Прибыль: $${profit.toFixed(2)} | Всего: $${total.toFixed(2)}`;
     }
-  </style>
-</head>
-<body>
 
-  <header>
-    <img src="logo.png" alt="M-ART Logo">
-    <h1>M-ART TOKEN (MAPTC)</h1>
-  </header>
-
-  <section class="about">
-    <p>M-ART — это инновационный токен, объединяющий инвестиции, просмотр рекламы и реальные возможности заработка. Зарабатывай без вложений, продвигай проекты или инвестируй в PR-фонд и получай прибыль до 80% в месяц.</p>
-  </section>
-
-  <div class="cta">
-    <button onclick="window.location.href='https://example.com/buy'">Купить токен</button>
-  </div>
-
-  <footer>
-    © 2025 M-ART Company — Все права защищены. <br>
-    По вопросам: support@m-art.com
-  </footer>
-
-</body>
-</html>
+    function submitInvestment() {
+      const wallet = document.getElementById('investWallet').value;
+      if (!wallet || !wallet.startsWith('0x') || wallet.length !== 42) {
+        document.getElementById('investConfirm').style.color = '#f00';
+        document.getElementById('investConfirm').textContent = 'Введите корректный адрес кошелька';
+        return;
+      }
+      document.getElementById('investConfirm').style.color = '#0f0';
+      document.getElementById('investConfirm').textContent = `Инструкция по инвестициям будет отправлена на кошелёк: ${wallet}`;
+    }
+  </script><!-- остальные разделы без изменений -->
