@@ -2,50 +2,95 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Калькулятор дохода</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Калькулятор дохода - M-ART</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: white;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    header img {
+      width: 200px;
+      margin-top: 20px;
+    }
+    nav {
+      margin: 20px 0;
+    }
+    nav a {
+      margin: 0 10px;
+      color: gold;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    h1 {
+      font-size: 28px;
+    }
+    .container {
+      max-width: 400px;
+      margin: 30px auto;
+      padding: 20px;
+      background: rgba(0,0,0,0.4);
+      border-radius: 10px;
+    }
+    input, select, button {
+      margin-top: 10px;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      border-radius: 5px;
+    }
+    button {
+      background-color: gold;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 15px;
+      font-size: 18px;
+      color: lightgreen;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <img src="logo.png" alt="M-ART Company Logo" class="logo">
-    <nav>
-      <ul>
-        <li><a href="index.html">Главная</a></li>
-        <li><a href="calculator.html">Калькулятор</a></li>
-        <li><a href="invest.html">Инвестировать</a></li>
-        <li><a href="security.html">Безопасность</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li><a href="contact.html">Контакты</a></li>
-      </ul>
-    </nav>
+    <img src="logo.png" alt="Логотип M-ART">
   </header>
 
-  <main>
-    <h2>Калькулятор дохода</h2>
-    <p>Введите сумму и выберите план:</p>
-    <input type="number" id="amount" placeholder="Сумма ($)">
+  <nav>
+    <a href="index.html">Главная</a>
+    <a href="calculator.html">Калькулятор</a>
+    <a href="invest.html">Инвестировать</a>
+    <a href="security.html">Безопасность</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Контакты</a>
+  </nav>
+
+  <div class="container">
+    <h1>Калькулятор дохода</h1>
+    <input type="number" id="amount" placeholder="Введите сумму ($)">
     <select id="plan">
-      <option value="0.04">4% / 30 дней</option>
-      <option value="0.06">6% / 60 дней</option>
-      <option value="0.08">8% / 90 дней</option>
+      <option value="4">4% / 30 дней</option>
+      <option value="6">6% / 60 дней</option>
+      <option value="10">10% / 90 дней</option>
     </select>
     <button onclick="calculate()">Рассчитать</button>
-    <p id="result"></p>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 M-ART Company. Все права защищены.</p>
-  </footer>
+    <div id="result"></div>
+  </div>
 
   <script>
     function calculate() {
-      const amount = parseFloat(document.getElementById('amount').value);
-      const rate = parseFloat(document.getElementById('plan').value);
-      if (!isNaN(amount)) {
-        const profit = amount + (amount * rate);
-        document.getElementById('result').innerText = `Доход: $${profit.toFixed(2)}`;
+      const amount = parseFloat(document.getElementById("amount").value);
+      const percent = parseFloat(document.getElementById("plan").value);
+      const profit = amount + (amount * percent / 100);
+      if (!isNaN(profit)) {
+        document.getElementById("result").innerText = 
+          `Ваш доход составит: $${profit.toFixed(2)}`;
       } else {
-        document.getElementById('result').innerText = 'Введите корректную сумму';
+        document.getElementById("result").innerText = "Введите корректную сумму.";
       }
     }
   </script>
