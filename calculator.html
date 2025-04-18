@@ -1,59 +1,53 @@
 <!DOCTYPE html><html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Калькулятор дохода</title>
-  <link rel="stylesheet" href="style.css" />
   <style>
     body {
-      background: linear-gradient(to right, #003840, #005f73);
+      background: linear-gradient(to bottom right, #004d66, #001f33);
+      color: white;
       font-family: Arial, sans-serif;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-    h1 {
-      font-size: 2em;
-      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
     }
     .calculator {
-      background-color: rgba(0, 0, 0, 0.4);
+      background: #002a3d;
       padding: 30px;
-      border-radius: 10px;
-      display: inline-block;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      width: 90%;
+      max-width: 400px;
     }
     input, select, button {
+      width: 100%;
       padding: 10px;
-      font-size: 1em;
       margin: 10px 0;
-      border-radius: 5px;
+      font-size: 16px;
+      border-radius: 8px;
       border: none;
-      width: 80%;
     }
     button {
-      background-color: #ffcc00;
-      color: #000;
+      background: #ffcc00;
+      font-weight: bold;
       cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    button:hover {
-      background-color: #e6b800;
     }
     .result {
-      margin-top: 20px;
-      font-size: 1.2em;
-      font-weight: bold;
+      margin-top: 15px;
     }
   </style>
 </head>
 <body>
-  <h1>Калькулятор дохода</h1>
   <div class="calculator">
-    <input type="number" id="amount" placeholder="Введите сумму ($)" />
+    <h2>Калькулятор дохода</h2>
+    <input type="number" id="amount" placeholder="Введите сумму ($)">
     <select id="plan">
-      <option value="4-30">4% / 30 дней</option>
-      <option value="6-60">6% / 60 дней</option>
-      <option value="8-90">8% / 90 дней</option>
+      <option value="4">4% / день (ежедневный вывод)</option>
+      <option value="5">5% / каждые 10 дней (3 выплаты)</option>
+      <option value="6">6% / в конце 30 дней (1 выплата)</option>
     </select>
     <button onclick="calculate()">Рассчитать</button>
     <div class="result" id="result"></div>
@@ -61,19 +55,36 @@
     function calculate() {
       const amount = parseFloat(document.getElementById('amount').value);
       const plan = document.getElementById('plan').value;
-      const [percent, days] = plan.split('-').map(Number);
+      let percent = 0;
+      let payout = "";
 
       if (isNaN(amount) || amount <= 0) {
-        document.getElementById('result').textContent = 'Введите корректную сумму';
+        document.getElementById('result').innerHTML = 'Введите корректную сумму';
         return;
       }
 
-      const profit = amount * (percent / 100);
-      const total = amount + profit;
+      switch(plan) {
+        case "4":
+          percent = 1.2; // 120%
+          payout = "Начисление 4% каждый день. Можно выводить ежедневно.";
+          break;
+        case "5":
+          percent = 1.5; // 150%
+          payout = "Выплаты через 10, 20 и 30 дней. По 50% каждая.";
+          break;
+        case "6":
+          percent = 1.8; // 180%
+          payout = "Вся сумма начисляется в конце 30 дней.";
+          break;
+      }
 
-      document.getElementById('result').textContent = `Ваш доход за ${days} дней: $${profit.toFixed(2)}. Общая сумма: $${total.toFixed(2)}`;
+      const profit = amount * (percent - 1);
+      const total = amount * percent;
+
+      document.getElementById('result').innerHTML =
+        `<strong>Доход:</strong> $${profit.toFixed(2)}<br>
+         <strong>Общая сумма:</strong> $${total.toFixed(2)}<br>
+         <strong>Детали выплат:</strong> ${payout}`;
     }
   </script></body>
 </html>
-  
-    
