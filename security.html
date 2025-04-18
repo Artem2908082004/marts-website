@@ -1,39 +1,75 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Безопасность</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Безопасность - M-ART</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: white;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    header img {
+      width: 200px;
+      margin-top: 20px;
+    }
+    nav {
+      margin: 20px 0;
+    }
+    nav a {
+      margin: 0 10px;
+      color: gold;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    h1 {
+      font-size: 28px;
+      margin-top: 30px;
+    }
+    .content {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background: rgba(0,0,0,0.4);
+      border-radius: 10px;
+      text-align: left;
+    }
+    .content h3 {
+      color: #FFD700;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <img src="logo.png" alt="M-ART Company Logo" class="logo">
-    <nav>
-      <ul>
-        <li><a href="index.html">Главная</a></li>
-        <li><a href="calculator.html">Калькулятор</a></li>
-        <li><a href="invest.html">Инвестировать</a></li>
-        <li><a href="security.html">Безопасность</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li><a href="contact.html">Контакты</a></li>
-      </ul>
-    </nav>
+    <img src="logo.png" alt="Логотип M-ART">
   </header>
 
-  <main>
-    <h2>Безопасность платформы</h2>
-    <p>M-ART использует смарт-контракты на базе блокчейна Polygon для обеспечения полной децентрализации и прозрачности всех операций.</p>
-    <ul style="text-align: left; max-width: 600px; margin: auto;">
-      <li>Смарт-контракт открыт и доступен для проверки.</li>
-      <li>Никаких скрытых комиссий или доступа к вашим средствам.</li>
-      <li>Все инвестиции происходят только через ваш кошелёк MetaMask.</li>
-      <li>Мы не храним личную информацию пользователей.</li>
-    </ul>
-  </main>
+  <nav>
+    <a href="index.html">Главная</a>
+    <a href="calculator.html">Калькулятор</a>
+    <a href="invest.html">Инвестировать</a>
+    <a href="security.html">Безопасность</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Контакты</a>
+  </nav>
 
-  <footer>
-    <p>&copy; 2025 M-ART Company. Все права защищены.</p>
-  </footer>
+  <h1>Безопасность проекта</h1>
+
+  <div class="content">
+    <h3>Прозрачность</h3>
+    <p>Все операции токена MAPTC доступны в обозревателях блокчейна. Вы можете отслеживать каждую транзакцию в режиме реального времени.</p>
+
+    <h3>Смарт-контракт</h3>
+    <p>Контракт прошел аудит и не содержит уязвимостей. Мы исключили возможности для ручного вмешательства в балансы участников.</p>
+
+    <h3>Безопасное подключение</h3>
+    <p>Интеграция с MetaMask осуществляется через защищенный канал. Ваши приватные ключи всегда остаются под вашим контролем.</p>
+
+    <h3>Поддержка</h3>
+    <p>В случае любых вопросов или подозрительной активности — вы всегда можете связаться с нашей командой поддержки через форму обратной связи.</p>
+  </div>
 </body>
 </html>
