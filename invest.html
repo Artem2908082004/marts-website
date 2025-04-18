@@ -1,48 +1,92 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Инвестировать</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Инвестировать - M-ART</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: white;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    header img {
+      width: 200px;
+      margin-top: 20px;
+    }
+    nav {
+      margin: 20px 0;
+    }
+    nav a {
+      margin: 0 10px;
+      color: gold;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    h1 {
+      font-size: 28px;
+    }
+    .form-container {
+      max-width: 400px;
+      margin: 30px auto;
+      padding: 20px;
+      background: rgba(0,0,0,0.4);
+      border-radius: 10px;
+    }
+    input, button {
+      margin-top: 10px;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      border-radius: 5px;
+    }
+    button {
+      background-color: gold;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    #message {
+      margin-top: 15px;
+      font-size: 16px;
+      color: lightgreen;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <img src="logo.png" alt="M-ART Company Logo" class="logo">
-    <nav>
-      <ul>
-        <li><a href="index.html">Главная</a></li>
-        <li><a href="calculator.html">Калькулятор</a></li>
-        <li><a href="invest.html">Инвестировать</a></li>
-        <li><a href="security.html">Безопасность</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li><a href="contact.html">Контакты</a></li>
-      </ul>
-    </nav>
+    <img src="logo.png" alt="Логотип M-ART">
   </header>
 
-  <main>
-    <h2>Инвестировать в M-ART</h2>
-    <p>Введите ваш кошелёк и подтвердите инвестицию:</p>
-    <input type="text" id="wallet" placeholder="Адрес кошелька (0x...)">
-    <button onclick="invest()">Инвестировать сейчас</button>
-    <p id="confirmation"></p>
-  </main>
+  <nav>
+    <a href="index.html">Главная</a>
+    <a href="calculator.html">Калькулятор</a>
+    <a href="invest.html">Инвестировать</a>
+    <a href="security.html">Безопасность</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Контакты</a>
+  </nav>
 
-  <footer>
-    <p>&copy; 2025 M-ART Company. Все права защищены.</p>
-  </footer>
+  <h1>Инвестировать сейчас</h1>
+
+  <div class="form-container">
+    <p>Введите адрес вашего кошелька, чтобы получить инструкции по инвестированию:</p>
+    <input type="text" id="wallet" placeholder="Например: 0x...">
+    <button onclick="submitForm()">Инвестировать</button>
+    <div id="message"></div>
+  </div>
 
   <script>
-    function invest() {
-      const wallet = document.getElementById('wallet').value;
-      const output = document.getElementById('confirmation');
-      if (wallet.startsWith('0x') && wallet.length === 42) {
-        output.innerText = 'Спасибо! Инструкция отправлена на ваш кошелёк.';
-        output.style.color = 'lightgreen';
+    function submitForm() {
+      const wallet = document.getElementById("wallet").value;
+      if (wallet.startsWith("0x") && wallet.length === 42) {
+        document.getElementById("message").innerText =
+          "Спасибо! Инструкции отправлены на вашу почту.";
       } else {
-        output.innerText = 'Пожалуйста, введите корректный адрес.';
-        output.style.color = 'red';
+        document.getElementById("message").innerText =
+          "Пожалуйста, введите корректный адрес кошелька.";
       }
     }
   </script>
