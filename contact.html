@@ -1,40 +1,113 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Контакты</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <title>Контакты - M-ART Company</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: white;
+    }
+    header {
+      text-align: center;
+      padding: 20px;
+    }
+    header img {
+      width: 180px;
+    }
+    nav {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    nav a {
+      margin: 0 10px;
+      color: gold;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #FFD700;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+    button {
+      margin-top: 20px;
+      background-color: #FFD700;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover {
+      background-color: gold;
+    }
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      color: #bbb;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <img src="logo.png" alt="M-ART Company Logo" class="logo">
-    <nav>
-      <ul>
-        <li><a href="index.html">Главная</a></li>
-        <li><a href="calculator.html">Калькулятор</a></li>
-        <li><a href="invest.html">Инвестировать</a></li>
-        <li><a href="security.html">Безопасность</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li><a href="contact.html">Контакты</a></li>
-      </ul>
-    </nav>
+    <img src="logo.png" alt="M-ART Logo">
   </header>
 
-  <main>
-    <h2>Связаться с нами</h2>
-    <p>Если у вас есть вопросы, предложения или предложения по сотрудничеству, заполните форму ниже.</p>
+  <nav>
+    <a href="index.html">Главная</a>
+    <a href="calculator.html">Калькулятор</a>
+    <a href="invest.html">Инвестировать</a>
+    <a href="security.html">Безопасность</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Контакты</a>
+  </nav>
 
-    <form action="mailto:artem.marunchak2908@gmail.com" method="post" enctype="text/plain" style="max-width: 500px; margin: auto;">
-      <input type="text" name="name" placeholder="Ваше имя" required><br>
-      <input type="email" name="email" placeholder="Ваш email" required><br>
-      <textarea name="message" placeholder="Ваше сообщение" rows="5" required></textarea><br>
+  <div class="container">
+    <h1>Связаться с нами</h1>
+    <form action="mailto:artem.marunchak2908@gmail.com" method="POST" enctype="text/plain">
+      <label for="name">Ваше имя:</label>
+      <input type="text" id="name" name="Имя" required>
+
+      <label for="email">Ваш Email:</label>
+      <input type="email" id="email" name="Email" required>
+
+      <label for="message">Сообщение:</label>
+      <textarea id="message" name="Сообщение" rows="5" required></textarea>
+
       <button type="submit">Отправить</button>
     </form>
-  </main>
+  </div>
 
   <footer>
-    <p>&copy; 2025 M-ART Company. Все права защищены.</p>
+    © 2025 M-ART Company. Все права защищены.
   </footer>
 </body>
 </html>
